@@ -1,0 +1,13 @@
+{
+  "name": "PsicOffice",
+  "image": "mcr.microsoft.com/devcontainers/java:21",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vmware.vscode-spring-boot",
+        "vscjava.vscode-maven"
+      ]
+    }
+  }
+}
