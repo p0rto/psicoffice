@@ -2,13 +2,13 @@ package com.p0rto.psicoffice.user.mapper;
 
 import org.springframework.stereotype.Component;
 
-import com.p0rto.psicoffice.user.dto.RegisterRequestDTO;
-import com.p0rto.psicoffice.user.dto.UserResponseDTO;
+import com.p0rto.psicoffice.user.dto.RegisterRequest;
+import com.p0rto.psicoffice.user.dto.UserResponse;
 import com.p0rto.psicoffice.user.entity.User;
 
 @Component
 public class UserMapper {
-    public User toEntity(RegisterRequestDTO dto) {
+    public User toEntity(RegisterRequest dto) {
         User user = new User();
 
         user.setName(dto.name());
@@ -22,7 +22,7 @@ public class UserMapper {
         return user;
     }
 
-    public UserResponseDTO toResponse(User user) {
-        return new UserResponseDTO(user.getId(), user.getName(), user.getBirthDate(), user.getCpf(), user.getEmail(), user.getCrp());
+    public UserResponse toResponse(User user) {
+        return new UserResponse(user.getId(), user.getName(), user.getBirthDate(), user.getCpf(), user.getEmail(), user.getCrp());
     }
 }

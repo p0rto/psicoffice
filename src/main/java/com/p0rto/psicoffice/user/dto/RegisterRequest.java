@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-public record RegisterRequestDTO(
+public record RegisterRequest(
     @NotBlank
     @Size(max = 150)
     String name,

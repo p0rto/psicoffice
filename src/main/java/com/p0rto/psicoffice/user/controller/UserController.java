@@ -3,7 +3,7 @@ package com.p0rto.psicoffice.user.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.p0rto.psicoffice.user.dto.RegisterRequestDTO;
+import com.p0rto.psicoffice.user.dto.RegisterRequest;
 import com.p0rto.psicoffice.user.service.UserService;
 
 import jakarta.validation.Valid;
@@ -22,7 +22,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<Void> register(@RequestBody @Valid RegisterRequestDTO requestDto) {
+    public ResponseEntity<Void> register(@RequestBody @Valid RegisterRequest requestDto) {
         userService.create(requestDto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
