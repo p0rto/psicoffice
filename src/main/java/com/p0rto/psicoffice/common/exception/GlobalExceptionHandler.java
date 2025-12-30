@@ -20,6 +20,16 @@ public class GlobalExceptionHandler {
             ));
     }
 
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<ApiError> handleUnauthorized(UnauthorizedException ex) {
+        return ResponseEntity
+            .status(HttpStatus.UNAUTHORIZED)
+            .body(new ApiError(
+                HttpStatus.UNAUTHORIZED.value(),
+                ex.getMessage()
+            ));
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiError> handleGeneric(Exception ex) {
 
