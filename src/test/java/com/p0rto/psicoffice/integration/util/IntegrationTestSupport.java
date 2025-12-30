@@ -5,13 +5,13 @@ import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.p0rto.psicoffice.user.dto.RegisterRequest;
-import com.p0rto.psicoffice.user.service.UserService;
+import com.p0rto.psicoffice.register.dto.RegisterRequest;
+import com.p0rto.psicoffice.register.service.RegisterService;
 
 @Component
 public class IntegrationTestSupport {
     @Autowired
-    UserService userService;
+    RegisterService userService;
 
     public RegisterRequest createDefaultUser() {
         RegisterRequest dto = new RegisterRequest(

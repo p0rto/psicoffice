@@ -1,4 +1,4 @@
-package com.p0rto.psicoffice.user.dto;
+package com.p0rto.psicoffice.register.dto;
 
 import java.time.LocalDate;
 import java.util.UUID;

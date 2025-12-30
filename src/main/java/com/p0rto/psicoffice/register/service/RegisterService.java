@@ -1,12 +1,12 @@
-package com.p0rto.psicoffice.user.service;
+package com.p0rto.psicoffice.register.service;
 
 import org.springframework.stereotype.Service;
 
 import com.p0rto.psicoffice.common.exception.ValidationException;
-import com.p0rto.psicoffice.user.dto.RegisterRequest;
-import com.p0rto.psicoffice.user.entity.User;
-import com.p0rto.psicoffice.user.mapper.UserMapper;
-import com.p0rto.psicoffice.user.repository.UserRepository;
+import com.p0rto.psicoffice.register.dto.RegisterRequest;
+import com.p0rto.psicoffice.register.entity.User;
+import com.p0rto.psicoffice.register.mapper.UserMapper;
+import com.p0rto.psicoffice.register.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class RegisterService {
     private final UserRepository repository;
     private final UserMapper mapper;
     private final PasswordEncoder passwordEncoder;

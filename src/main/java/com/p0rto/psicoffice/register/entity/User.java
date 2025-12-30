@@ -1,4 +1,4 @@
-package com.p0rto.psicoffice.user.entity;
+package com.p0rto.psicoffice.register.entity;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;

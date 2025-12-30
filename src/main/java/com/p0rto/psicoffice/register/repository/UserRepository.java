@@ -1,11 +1,11 @@
-package com.p0rto.psicoffice.user.repository;
+package com.p0rto.psicoffice.register.repository;
 
 import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.p0rto.psicoffice.user.entity.User;
+import com.p0rto.psicoffice.register.entity.User;
 
 public interface UserRepository extends JpaRepository<User, UUID> {
     Optional<User> findByEmail(String email);

@@ -1,10 +1,10 @@
-package com.p0rto.psicoffice.user.mapper;
+package com.p0rto.psicoffice.register.mapper;
 
 import org.springframework.stereotype.Component;
 
-import com.p0rto.psicoffice.user.dto.RegisterRequest;
-import com.p0rto.psicoffice.user.dto.UserResponse;
-import com.p0rto.psicoffice.user.entity.User;
+import com.p0rto.psicoffice.register.dto.RegisterRequest;
+import com.p0rto.psicoffice.register.dto.UserResponse;
+import com.p0rto.psicoffice.register.entity.User;
 
 @Component
 public class UserMapper {

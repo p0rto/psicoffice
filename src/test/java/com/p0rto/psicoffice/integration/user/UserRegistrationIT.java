@@ -16,14 +16,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.p0rto.psicoffice.user.dto.RegisterRequest;
+import com.p0rto.psicoffice.register.dto.RegisterRequest;
 
 @SpringBootTest
 @ActiveProfiles("test")
 @Transactional
 @AutoConfigureMockMvc
 public class UserRegistrationIT {
-    private static final String USER_PATH = "/api/users";
+    private static final String USER_PATH = "/api/register";
 
     @Autowired
     private MockMvc mockMvc;
@@ -35,7 +35,7 @@ public class UserRegistrationIT {
     void shouldRegisterUserSuccesfully() throws Exception {
         RegisterRequest requestDto = createUserRequest("00000000001", "email@teste.com");
 
-        mockMvc.perform(MockMvcRequestBuilders.post(USER_PATH + "/register")
+        mockMvc.perform(MockMvcRequestBuilders.post(USER_PATH)
             .contentType(MediaType.APPLICATION_JSON)
             .content(objectMapper.writeValueAsString(requestDto)))
           .andExpect(status().isCreated());
@@ -46,7 +46,7 @@ public class UserRegistrationIT {
         RegisterRequest requestDto = createUserRequest("00000000002", "email@teste.com");
 
         // register
-        mockMvc.perform(MockMvcRequestBuilders.post(USER_PATH + "/register")
+        mockMvc.perform(MockMvcRequestBuilders.post(USER_PATH)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(requestDto)))
             .andExpect(status().isCreated());
@@ -54,7 +54,7 @@ public class UserRegistrationIT {
         RegisterRequest requestDtoDuplicatedEmail = createUserRequest("00000000001", "email@teste.com");
 
         // duplicated email
-        mockMvc.perform(MockMvcRequestBuilders.post(USER_PATH + "/register")
+        mockMvc.perform(MockMvcRequestBuilders.post(USER_PATH)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(requestDtoDuplicatedEmail)))
             .andExpect(status().isBadRequest())
@@ -66,7 +66,7 @@ public class UserRegistrationIT {
         RegisterRequest requestDto = createUserRequest("00000000001", "email@teste.com");
 
         // register
-        mockMvc.perform(MockMvcRequestBuilders.post(USER_PATH + "/register")
+        mockMvc.perform(MockMvcRequestBuilders.post(USER_PATH)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(requestDto)))
             .andExpect(status().isCreated());
@@ -74,7 +74,7 @@ public class UserRegistrationIT {
         RegisterRequest requestDtoDuplicatedCpf = createUserRequest("00000000001", "newemail@teste.com");
 
         // duplicated cpf
-        mockMvc.perform(MockMvcRequestBuilders.post(USER_PATH + "/register")
+        mockMvc.perform(MockMvcRequestBuilders.post(USER_PATH)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(requestDtoDuplicatedCpf)))
             .andExpect(status().isBadRequest())

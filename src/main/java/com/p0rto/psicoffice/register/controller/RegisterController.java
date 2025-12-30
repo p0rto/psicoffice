@@ -1,10 +1,10 @@
-package com.p0rto.psicoffice.user.controller;
+package com.p0rto.psicoffice.register.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.p0rto.psicoffice.user.dto.RegisterRequest;
-import com.p0rto.psicoffice.user.service.UserService;
+import com.p0rto.psicoffice.register.dto.RegisterRequest;
+import com.p0rto.psicoffice.register.service.RegisterService;
 
 import jakarta.validation.Valid;
 
@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("/api/users")
-public class UserController {
+@RequestMapping("/api/register")
+public class RegisterController {
     @Autowired
-    private UserService userService;
+    private RegisterService registerService;
 
-    @PostMapping("/register")
+    @PostMapping
     public ResponseEntity<Void> register(@RequestBody @Valid RegisterRequest requestDto) {
-        userService.create(requestDto);
+        registerService.create(requestDto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
